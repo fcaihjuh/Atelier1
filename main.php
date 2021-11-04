@@ -63,17 +63,17 @@ $c = Produit::where('id' ,'=', 5)->first();
 $cat = $c->categorie()->first();
 echo $cat;*/
 
-//$produit1 = new Produit();
-//$produit1->ajouterProduit(20, 'Litchi', 4, 2, 'BIO', 1.9, 'default.png');
+/*$produit1 = new Produit();
+$produit1->supprimerProduit(23, 2, 2);*/
 
-/*echo "/*************************** Liste des commandes ********************* /<br>";
-$c=new hangarapp\model\Commande;
-$requete = Commande::select(); 
+echo "<br>/*************************** Liste des produits ********************* /<br>";
+$requete = Produit::select(); 
 
-$lignesC = $requete->get();   /* exécution de la requête et plusieurs lignes résultat */
+$lignesP = $requete->get();   /* exécution de la requête et plusieurs lignes résultat */
 
-/*foreach ($lignesC as $c)      /* $v est une instance de la classe Ville */
-    /*echo "Identifiant = $c->Id, Nom = $c->Nom_client <br>" ;*/
+foreach ($lignesP as $p)      /* $p est une instance de la classe Produit */
+    echo "<br>Identifiant: $p->Id, Nom: $p->Nom, Description: $p->Description <br>" ;
 
-    $produit1 = new Produit();
-    $produit1->getProduit();
+$aff = new Produit();
+$aff->AfficherProduit();
+
