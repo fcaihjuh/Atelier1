@@ -55,14 +55,25 @@ $router->run();
 /*$prod = new Produit();
 $prod->ajouterProduit(2, 2, 'Prune', 'Bio', 1.9, 'default.png');*/
 
-$p = Categorie::where('Id', '=', 2)->first();
-$liste_produits = $p->produits()->get() ;
-//var_dump($liste_produits);
-echo $p->Nom;
-foreach($liste_produits as $unp) {
-    echo $unp->Nom;
-}
+/*$lp = Categorie::where('Id', '=', 3)->first();
+$liste_produits = $lp->produits()->get() ;
+var_dump($liste_produits);
 
 $c = Produit::where('id' ,'=', 5)->first();
 $cat = $c->categorie()->first();
-//echo $cat->Nom;
+echo $cat;*/
+
+//$produit1 = new Produit();
+//$produit1->ajouterProduit(20, 'Litchi', 4, 2, 'BIO', 1.9, 'default.png');
+
+/*echo "/*************************** Liste des commandes ********************* /<br>";
+$c=new hangarapp\model\Commande;
+$requete = Commande::select(); 
+
+$lignesC = $requete->get();   /* exécution de la requête et plusieurs lignes résultat */
+
+/*foreach ($lignesC as $c)      /* $v est une instance de la classe Ville */
+    /*echo "Identifiant = $c->Id, Nom = $c->Nom_client <br>" ;*/
+
+    $produit1 = new Produit();
+    $produit1->getProduit();

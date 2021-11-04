@@ -15,6 +15,24 @@ class Categorie extends \Illuminate\Database\Eloquent\Model{
         /* 'Id_Categorie' : la clé étrangère dans la table liée */
  }
 
+/*function getCategorieById($id) {
+    $resultat = array();
 
+    try
+    {
+        $cnx = $this->BDD->connexionPDO();
+        $req = $cnx->prepare("select * from Categorie where id=:id");
+        $req->bindValue(":id", $id, PDO::PARAM_STR);
+        $req->execute();
+
+        $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch (PDOException $e)
+    {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+return $resultat;
+}*/
 }
 ?>
