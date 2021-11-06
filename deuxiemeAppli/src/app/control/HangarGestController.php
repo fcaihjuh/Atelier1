@@ -110,7 +110,7 @@ fol
         $commande = Commande::select('Nom_client','Montant')
         ->from('Commande');
     $vueCommande = new HangarGestView($commande);
-    echo $vueCommande->render('renderHome');
+    echo $vueCommande->render('renderListeC');
 
     }
 
