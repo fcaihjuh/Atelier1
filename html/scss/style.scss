@@ -23,43 +23,60 @@
   @media (min-width: 1800px) { @content; }
 }
 
------------------------------------
-
-html *
+body *
 {
   margin: 0em;
+  @include for-tablet-portrait-up{font-size: 2rem;}
+  @include for-desktop-up{font-size: 1rem;}
+}
+
+body *::-webkit-scrollbar
+{
+  display: none;
+}
+
+li
+{
+  list-style-type: none;
+}
+
+h1
+{
+  text-align: center;
+  background-color: white;
+  opacity: 0.8;
+}
+
+input
+{
+  width: 100px;
 }
 
 body
 {
-	background-color: #6bb66b;
+	background-color: #c6a471;
 }
 
-.main_container
-{
-  height: auto;
-}
-
-.header
+.nav_bar
 {
   height: 10vh;
-
+  background-color: #555;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(75px, auto);
 }
 
-.header div
+.nav_bar div
 {
-  font-size: 5em;
+  font-size: 3em;
   border-radius: 10%;
   text-align: center;
 }
 
-.header div:hover
+.nav_bar div:hover
 {
-  background-color: #7bc67b;
+  background-color: #777;
 }
 
 .ads
@@ -82,20 +99,45 @@ body
 .content_container::-webkit-scrollbar {
     display: none;
 }
-.article
+
+.container_produit
 {
-  flex: auto;
-  width: auto;
-  min-height: 10vh;
-  max-height: 25%;
-  margin: 10px;
-  background-color: #dadada;
-  margin: 1%;  
+    margin: 2%;
+    display:flex;
+    @include for-tablet-portrait-up{margin: 2%; flex-direction: column;}
+    @include for-desktop-up{margin: 0%; flex-direction: row;}
 }
 
-.article_header
+.container_categorie
 {
-  
+    @include for-tablet-portrait-up{width: auto;}
+    @include for-desktop-up{width: 25%; height: 80vh; overflow-y: scroll; padding:1%;}
+}
+
+.cell_produit
+{
+  border-right: solid black;
+  width: 50%;
+}
+
+.list_produit
+{
+  background-color: #ccc;
+  border: solid 1px black;
+}
+
+.info_produit
+{
+  background-color: #eee;
+  border-top: solid black;
+  display: flex;
+  flex-direction: row;
+}
+
+.cell_produit
+{
+  padding: 1%;
+  height: auto;
 }
 
 .article_content
@@ -106,6 +148,12 @@ body
 .article:hover .article_content
 {
   display: block;
+}
+
+.photo_produit
+{
+  @include for-tablet-portrait-up{height: 160px;}
+  @include for-desktop-up{height: 100px;}
 }
 
 #btn_panier

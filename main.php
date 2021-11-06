@@ -37,17 +37,61 @@ $paramsServer = parse_ini_file("conf/config.ini");
 /* une instance de connexion  */
 $db = new Illuminate\Database\Capsule\Manager();
 
-$db->addConnection( $paramsServer ); /* configuration avec nos paramètres */
+$db->addConnection($paramsServer); /* configuration avec nos paramètres */
 $db->setAsGlobal();            /* rendre la connexion visible dans tout le projet */
 $db->bootEloquent();           /* établir la connexion */
 
 $router = new Router();
-$router->addRoute('home',
-                  '/home/',
-                  '\hangarapp\control\HangarController',
-                  'viewHome');
+$router->addRoute(
+    'home',
+    '/home/',
+    '\hangarapp\control\HangarController',
+    'viewHome'
+);
 
-                
+$router->addRoute(
+    'test',
+    '/test/',
+    '\hangarapp\control\HangarController',
+    'viewTest'
+);
+
+$router->addRoute(
+    'producteur',
+    '/producteur/',
+    '\hangarapp\control\HangarController',
+    'viewProducteur'
+);
+
+$router->addRoute(
+    'unProducteur',
+    '/unProducteur/',
+    '\hangarapp\control\HangarController',
+    'viewUnProducteur'
+);
+
+
+$router->addRoute(
+    'panier',
+    '/panier/',
+    '\hangarapp\control\HangarController',
+    'viewPanier'
+);
+
+$router->addRoute(
+    'commande',
+    '/commande/',
+    '\hangarapp\control\HangarController',
+    'viewCommande'
+);
+
+$router->addRoute(
+    'finalisation',
+    '/finalisation/',
+    '\hangarapp\control\HangarController',
+    'viewValid'
+);
+
 $router->setDefaultRoute('/home/');
 
 $router->run();
@@ -55,25 +99,25 @@ $router->run();
 /*$prod = new Produit();
 $prod->ajouterProduit(2, 2, 'Prune', 'Bio', 1.9, 'default.png');*/
 
-/*$lp = Categorie::where('Id', '=', 3)->first();
-$liste_produits = $lp->produits()->get() ;
+/*$lp = Categorie::where('Id','=', 3)->first();
+$liste_produits = $lp->produits()->first() ;
 var_dump($liste_produits);
+*/
 
-$c = Produit::where('id' ,'=', 5)->first();
+/*$c = Produit::where('id' ,'=', 5)->first();
 $cat = $c->categorie()->first();
 echo $cat;*/
 
 /*$produit1 = new Produit();
 $produit1->supprimerProduit(23, 2, 2);*/
 
-echo "<br>/*************************** Liste des produits ********************* /<br>";
+/*echo "<br>/*************************** Liste des produits ********************* /<br>";
 $requete = Produit::select(); 
 
 $lignesP = $requete->get();   /* exécution de la requête et plusieurs lignes résultat */
 
-foreach ($lignesP as $p)      /* $p est une instance de la classe Produit */
-    echo "<br>Identifiant: $p->Id, Nom: $p->Nom, Description: $p->Description <br>" ;
+/*foreach ($lignesP as $p)      /* $p est une instance de la classe Produit */
+   /* echo "<br>Identifiant: $p->Id, Nom: $p->Nom, Description: $p->Description <br>" ;
 
-$aff = new Produit();
-$aff->AfficherProduit();
-
+/*$aff = new Produit();*/
+/*$aff->AfficherProduit();*/
