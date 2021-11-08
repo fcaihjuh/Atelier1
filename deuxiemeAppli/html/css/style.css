@@ -1,0 +1,87 @@
+:root {
+    --cmd:calc(100%/5);
+    /*14%*/ }
+  
+  html * {
+    margin: 0em; }
+  
+  body {
+    background-color: #6bb66b; }
+  
+  .main_container {
+    height: auto; }
+  
+  .nav_bar {
+    height: 10vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(75px, auto); }
+  
+  .header div {
+    font-size: 5em;
+    border-radius: 10%;
+    text-align: center; }
+  
+  .header div:hover {
+    background-color: #7bc67b; }
+  
+  .ads {
+    height: 10vh;
+    background-color: #aaa;
+    border-bottom: solid 1em black; }
+  
+  .content_container {
+    min-height: 77vh;
+    max-height: 77vh;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll; }
+  
+  .content_container::-webkit-scrollbar {
+    display: none; }
+  
+  .article {
+    flex: auto;
+    width: auto;
+    min-height: 10vh;
+    max-height: 25%;
+    margin: 10px;
+    background-color: #dadada;
+    margin: 1%; }
+  
+  .article_content {
+    display: none; }
+  
+  .article:hover .article_content {
+    display: block; }
+  
+  #btn_panier {
+    grid-column: 4;
+    grid-row: 1; }
+  
+  #btn_connexion {
+    grid-column: 5;
+    grid-row: 1; }
+  
+  h1 {
+    text-align: center; }
+  
+  .theme1 {
+    width: 50%;
+    border: 3px solid white;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3%; }
+  
+  .form {
+    text-align: center;
+    width: 50%;
+    padding: 5%;
+    border: 3px solid yellowgreen;
+    margin: auto;
+    margin-bottom: 10%; }
+  
+  /*# sourceMappingURL=style.css.map */
