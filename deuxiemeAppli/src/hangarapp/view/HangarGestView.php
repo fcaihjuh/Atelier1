@@ -56,6 +56,7 @@ class HangarGestView extends AbstractView
     private function renderNav()
     {
         $route = new Router();
+        $link_commandes =$route->urlFor('commandes');
         $link_home =$route->urlFor('home');
         $link_login =$route->urlFor('home');
         $link_register =$route->urlFor('home');
@@ -64,6 +65,7 @@ class HangarGestView extends AbstractView
 
         $nav = "
         <div><a href=".$link_form.">👤</a></div>";
+        "<div><a href=".$link_commandes.">Commandes</a></div>";
         return $nav;
     }
 
@@ -76,9 +78,12 @@ class HangarGestView extends AbstractView
     private function renderHome()
     {
         $route = new Router();
+        $route = new Router();
         $link_commandes =$route->urlFor('commandes');
         $txt = "<div><a href=".$link_commandes.">Commandes</a></div>";
         return $txt;
+        
+       
 
 
     
@@ -147,16 +152,23 @@ class HangarGestView extends AbstractView
     }
 
     public function renderListeC() {
-        $router = new Router();
+        $route = new Router();
         $commandes = $this->data;
-        $displayCommandes = "<div class='commande'><h2>Les commandes</h2>";
-        $displayCommandes = "<div class='commande'><h2>Les commandes</h2>";
-        foreach ($commandes as $c){
-            $displayCommandes .= "<div class='cmd'>Nom client : ".$c->Nom_client."<br> Montant  : ".$c->Montant."<br>
-            <br></div>"; 
-        }
+        $displayCommandes = "<div class='commande' href=><h2>Les commandes</h2>";
+        foreach ($commandes as $commande)
+        $link_commande =$route->urlFor('commandes',[['Id',"$commande->Id"]]);     
+        $html =  "<div style='font-weight: bolder'>Commandes: </div>";
+             $html .= "
+             <div class='client-nom'> Nom du client:<a href=" . $link_commande ."> $commande->Nom_client </a></div>
+             <div class='montant'>Montant:  $commande->Montant \n</div>
+             </div>
+     ";
+
+ 
+          return $html;
 
         $displayCommandes .= "</div>";
+
 
         return $displayCommandes;
     }
@@ -191,11 +203,11 @@ class HangarGestView extends AbstractView
                 $navBar = $this->renderNav();
                 break;
                 
-            case 'viewLogin':
+            case 'renderLogin':
                 $center = $this->renderLogin();
                 break;
 
-            case 'viewListeC':
+            case 'renderListeC':
                 $center = $this->renderListeC();
                 $navBar = $this->renderNav();
                 break;
